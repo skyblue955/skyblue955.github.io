@@ -3,13 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="keywords" content="ssrf,一句话木马,githack">
     <meta name="description" content="Hexo Theme Keep">
     <meta name="author" content="靳言">
     
     <title>
         
-            Hello World |
+            web刷题(一) |
         
         努力学习ing
     </title>
@@ -187,7 +187,7 @@
         <div class="article-content-container">
 
             <div class="article-title">
-                <span class="title-hover-animation">Hello World</span>
+                <span class="title-hover-animation">web刷题(一)</span>
             </div>
 
             
@@ -209,27 +209,50 @@
         
             <i class="fa-regular fa-calendar-plus"></i>&nbsp;
         
-        <span class="pc">2022-11-21 16:39:25</span>
-        <span class="mobile">2022-11-21 16:39</span>
+        <span class="pc">2022-11-22 08:51:48</span>
+        <span class="mobile">2022-11-22 08:51</span>
     </span>
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2022-11-21 16:39:25</span>
+        <span class="pc">2022-11-22 11:56:11</span>
     </span>
     
     
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/ssrf/">ssrf</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/nmap/">nmap</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E6%AD%A3%E5%88%99/">正则</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/preg-replace/">preg_replace</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
     
 
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>75 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>926 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>1 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>3 分钟</span>
         </span>
     
     
@@ -245,19 +268,105 @@
             
 
             <div class="article-content keep-markdown-body">
-                <p>Welcome to <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/" >Hexo<i class="fas fa-external-link-alt"></i></a>! This is your very first post. Check <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/" >documentation<i class="fas fa-external-link-alt"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html" >troubleshooting<i class="fas fa-external-link-alt"></i></a> or you can ask me on <a class="link"   target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues" >GitHub<i class="fas fa-external-link-alt"></i></a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+                <h4 id="ssrf（服务端请求伪造）"><a href="#ssrf（服务端请求伪造）" class="headerlink" title="ssrf（服务端请求伪造）"></a>ssrf（服务端请求伪造）</h4><p>​	原因：web网站会从其他的服务器获取信息然后显示到当前网站上，而这个获取信息的url链接是用户<strong>自己可控</strong>的，且过滤要求不是很严</p>
+<p>​	危害：可用来获取web服务器本地的一些敏感文件，如使用php伪协议的<strong>file:&#x2F;&#x2F;</strong></p>
+<h4 id="IP-伪造"><a href="#IP-伪造" class="headerlink" title="IP 伪造"></a>IP 伪造</h4><p>​	X-Foewared-For：用来获取客户端的ip地址—-可自定义伪造</p>
+<h4 id="模块注入"><a href="#模块注入" class="headerlink" title="模块注入"></a>模块注入</h4><p>​	java的spring， python的flask，php的tp </p>
+<p>​	用户提交的信息被当作代码执行：</p>
+<p>​		其中变量为 {  {  } } 的形式 </p>
+<h4 id="shell命令"><a href="#shell命令" class="headerlink" title="shell命令"></a>shell命令</h4><p>​	单引号中的变量( $shell ) <strong>不会</strong> 被当作变量执行</p>
+<p>​	双引号中的变量( $shell ) <strong>会</strong>被当做变量执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">┌──(kali㉿kali)-[~]</span><br><span class="line">└─$ <span class="built_in">echo</span> <span class="string">&quot;\&lt;&quot;</span>                                                            </span><br><span class="line">\&lt;</span><br><span class="line">                                                                                                                                                                                                 </span><br><span class="line">┌──(kali㉿kali)-[~]</span><br><span class="line">└─$ <span class="built_in">echo</span> <span class="string">&#x27;\&lt;&#x27;</span></span><br><span class="line">\&lt;</span><br><span class="line">                                                                                                                                                                                                 </span><br><span class="line">┌──(kali㉿kali)-[~]</span><br><span class="line">└─$ <span class="built_in">echo</span> \&lt;  </span><br><span class="line">&lt;				<span class="comment">#没有引号的时候，会转义，</span></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html" >Writing<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/server.html" >Server<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>python的虚拟环境:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建</span></span><br><span class="line">python -m venv 环境名</span><br><span class="line"><span class="comment"># 激活</span></span><br><span class="line"><span class="built_in">source</span> 环境名/bin/sctivate</span><br><span class="line"><span class="comment">#退出</span></span><br><span class="line">deactivate</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html" >Generating<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html" >Deployment<i class="fas fa-external-link-alt"></i></a></p>
+
+<h4 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h4><p>​	循环匹配的—- ( ?R )</p>
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="https://gitee.com/skyblue955/pic-library/raw/master/image-20221122093743280.png"
+                      alt="image-20221122093743280"
+                ></p>
+<p>​	 ( ?R )	 ：匹配一次   </p>
+<pre><code> ( ?R )+   ：匹配一次或多次  
+</code></pre>
+<p>​	 ( ?R )*    ：匹配0次或多次 </p>
+<p>​	 ( ?R )？   ：匹配0次或1词   </p>
+<p>​	  </p>
+<p>​	因为是递归循环匹配的（相当于一直在循环匹配），前两个如果匹配到的话是没有退出条件的（所以匹配不成功），而后两个是由退出条件<strong>（即为0次，时）</strong>，所以可以匹配成功</p>
+<p>​	例子：</p>
+<p>​		a(b(c()))—–若按第二个匹配来的话，那么最里的括号里应该还有能匹配的</p>
+<p>​							按第三个来的话，匹配到 ***c()***时，此时没有能匹配的了，匹配次数为0.相							当于在此停止匹配了</p>
+<h4 id="php"><a href="#php" class="headerlink" title="php"></a>php</h4><ol>
+<li><p>读文件到页面的方法：</p>
+<ol>
+<li><p>​	php伪协议：<code>file：//或php：//filte</code></p>
+</li>
+<li><p><code>file_get_contents()</code>函数</p>
+</li>
+<li><p>​    使用系统命令，如：<code>system(&quot;ls&quot;)或system(&quot; cat /flag&quot;)</code></p>
+</li>
+<li><p>​    使用<code>highlight_file()或show_source()</code></p>
+</li>
+<li><p>php使用session（可用来伪造session信息，从而绕过安全检测！！）</p>
+<ol>
+<li>手动启用：<code>session_start() #会自动生成一个session_id值</code></li>
+<li>自定义session的值：<code>$_session[&#39;key&#39;]</code></li>
+<li>可使用抓包工具更改session_id的值，然后服务端使用函数读取session_id，以此来绕过一些字符串检测</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>php伪协议：</p>
+<ul>
+<li><p>​	读文件</p>
+<ul>
+<li><p><code>php://filter/read=convert.base64-encode/resource= &#39; xxx.php &#39;</code></p>
+</li>
+<li><p><code>file://&#39; 路径名 &#39;</code></p>
+</li>
+<li><p>​    写文件(输入文件流)</p>
+<ul>
+<li><code>php://filter/write=convert.base64-encode/resource=&#39;  xxx.php &#39; &amp;&amp; txt= &quot;内容&quot;</code></li>
+<li><code>php://filter/resource=&#39;  xxx.php &#39; &amp;&amp; txt= &quot;内容&quot;</code></li>
+<li><code>php://input  ----- 此时使用post传数据流</code></li>
+<li><code>data://text/plain;base64,&quot; 编码内容 “</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>​    执行命令</p>
+</li>
+</ul>
+</li>
+<li><p><strong>php的坑</strong>：</p>
+<ol>
+<li>​	在后端传参时，有些特殊字符会被默认替换：</li>
+</ol>
+</li>
+</ol>
+<p>​		     <code>如： .*  =&gt; _*</code>    即传参数时，小数点开头则会被替换为<code>_</code></p>
+<p>​		 2.    使用变量输出时，单引号中变量<strong>不存在</strong>，双引号中变量<strong>存在</strong></p>
+<p><code>preg_replace($pattern, $replacement, $subject)</code>函数，其中<code>$pattern</code>的标志有<code>\e</code>，PHP 5.5.0 起， 传入 “\e” 修饰符的时候，会产生一个 <strong><code>E_DEPRECATED</code></strong> 错误； PHP 7.0.0 起，会产生 <strong><code>E_WARNING</code></strong> 错误，同时 “\e” 也无法起效。</p>
+<p><code>preg_replace（）</code>函数的漏洞</p>
+<p>​	匹配成功后，第二个参数会被当作代码执行</p>
+<p>​	而<code>preg_replace(&#39;/(&#39; . $re . &#39;)/ei&#39;,&#39;strtolower(&quot;\\1&quot;)&#39;,$str）</code>中的<code>\\1</code>会被解释为<code>\1</code> 即为正则匹配到的第一个字符（group(1)）</p>
+<p>​	漏洞执行过程：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/.*/ei&#x27;</span>,<span class="string">&#x27;strtolower(&quot;\\1&quot;)&#x27;</span>,<span class="title function_ invoke__">phpinfo</span>()）</span><br><span class="line">             相当于是 <span class="keyword">eval</span>(<span class="string">&#x27;strtolower(&quot;phpinfo()&quot;)&#x27;</span>),此时<span class="title function_ invoke__">phpinfo</span>()是一个字符串，不能执行该代码</span><br><span class="line"><span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/.*/ei&#x27;</span>,<span class="string">&#x27;strtolower(&quot;\\1&quot;)&#x27;</span>,$&#123;<span class="title function_ invoke__">phpinfo</span>()&#125;)</span><br><span class="line">             相当于是 <span class="keyword">eval</span>(<span class="string">&#x27;strtolower(&quot;$&#123;phpinfo()&#125;&quot;)&#x27;</span>) 此时<span class="title function_ invoke__">phpinfo</span>()是一个变量，可以执行改代码，</span><br><span class="line">             但是！！！当<span class="title function_ invoke__">strtolower</span>()内为单引号时，便不行了！！！！！</span><br></pre></td></tr></table></figure>
+
+
+
+<p>php的循环遍历：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">foreach</span>(<span class="variable">$_GET</span> <span class="keyword">as</span> <span class="variable">$key</span> =&gt; <span class="variable">$value</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">print</span>(<span class="variable">$key</span>);</span><br><span class="line">    <span class="keyword">print</span>(<span class="variable">$value</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
 
             </div>
 
@@ -266,16 +375,16 @@
                     <div class="article-copyright-info-container">
     <ul class="copyright-info-content">
         <li>
-            <span class="type">本文标题</span>：<span class="content">Hello World</span>
+            <span class="type">本文标题</span>：<span class="content">web刷题(一)</span>
         </li>
         <li>
             <span class="type">本文作者</span>：<span class="content">靳言</span>
         </li>
         <li>
-            <span class="type">创建时间</span>：<span class="content">2022-11-21 16:39:25</span>
+            <span class="type">创建时间</span>：<span class="content">2022-11-22 08:51:48</span>
         </li>
         <li class="post-link">
-            <span class="type">本文链接</span>：<span class="content">2022/11/21/hello-world/</span>
+            <span class="type">本文链接</span>：<span class="content">2022/11/22/web刷题-一/</span>
         </li>
         <li>
             <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
@@ -287,25 +396,45 @@
             
 
             
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/ssrf/">#ssrf</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/nmap/">#nmap</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/%E6%AD%A3%E5%88%99/">#正则</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/preg-replace/">#preg_replace</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
 
             
                 <div class="article-nav">
                     
-                        <div class="article-prev">
-                            <a class="prev"
-                               rel="prev"
-                               href="/2022/11/22/web%E5%88%B7%E9%A2%98-%E4%B8%80/"
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/2022/11/21/hello-world/"
                             >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Hello World</span>
+                                <span class="post-nav-item">下一篇</span>
                             </span>
-                                <span class="title flex-center">
-                                <span class="post-nav-title-item">web刷题(一)</span>
-                                <span class="post-nav-item">上一篇</span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
                             </span>
                             </a>
                         </div>
-                    
                     
                 </div>
             
@@ -375,7 +504,7 @@
             <div class="toc-content-container">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#ssrf%EF%BC%88%E6%9C%8D%E5%8A%A1%E7%AB%AF%E8%AF%B7%E6%B1%82%E4%BC%AA%E9%80%A0%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">ssrf（服务端请求伪造）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IP-%E4%BC%AA%E9%80%A0"><span class="nav-number">2.</span> <span class="nav-text">IP 伪造</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A8%A1%E5%9D%97%E6%B3%A8%E5%85%A5"><span class="nav-number">3.</span> <span class="nav-text">模块注入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#shell%E5%91%BD%E4%BB%A4"><span class="nav-number">4.</span> <span class="nav-text">shell命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">5.</span> <span class="nav-text">正则表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#php"><span class="nav-number">6.</span> <span class="nav-text">php</span></a></li></ol>
     </div>
 </div>
 
