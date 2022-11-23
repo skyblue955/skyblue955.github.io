@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="靳言">
+    
+    <title>
+        
+            dirsearch工具使用 |
+        
+        努力学习ing
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/bear2.png">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.2/source/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.2/source/fontawesome/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.2/source/fontawesome/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.2/source/fontawesome/css/brands.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":false},"style":{"primary_color":"#87ceeb","logo":"/images/bear1.png","favicon":"/images/bear2.png","avatar":"/images/xiong.png","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/first_screen.jpg","description":"Keep writing and Keep loving.","font_color":null,"hitokoto":true},"scroll":{"progress_bar":false,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":true,"use":"gitalk","valine":{"appid":null,"appkey":null,"placeholder":null},"gitalk":{"github_id":"skyblue955","github_admins":null,"repository":"blogComment","client_id":"b0d265b65e10dfe0b28a","client_secret":"601093bea47cf989b9426df6fb006286a8075bcc"},"twikoo":{"env_id":null,"region":null,"version":"1.6.7"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"center","copyright_info":true},"version":"3.5.2"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"};
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/bear1.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+               努力学习ing
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">dirsearch工具使用</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/xiong.png">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">靳言</span>
+                            
+                                <span class="author-label">Lv1</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2022-11-22 19:09:00</span>
+        <span class="mobile">2022-11-22 19:09</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2022-11-22 19:28:46</span>
+    </span>
+    
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/search/">search</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Web%E5%B7%A5%E5%85%B7/">Web工具</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/">信息收集</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>2.7k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>12 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                <h4 id="dirsearch介绍"><a href="#dirsearch介绍" class="headerlink" title="dirsearch介绍"></a>dirsearch介绍</h4><p>dirsearch是一个基于python3的命令行工具，常用于暴力扫描页面结构，包括网页中的目录和文件。相比其他扫描工具disearch的特点是：</p>
+<p>支持HTTP代理</p>
+<p>多线程</p>
+<p>支持多种形式的网页（asp,php）</p>
+<p>生成报告（纯文本，JSON）</p>
+<p>启发式检测无效的网页</p>
+<p>递归扫描</p>
+<p>用户代理随机化</p>
+<p>批量处理</p>
+<p>扫描器与字典（注：字典必须是文本文件）</p>
+<h4 id="下载及安装"><a href="#下载及安装" class="headerlink" title="下载及安装"></a>下载及安装</h4><p>要求:python 3.7或更高版本 </p>
+<p>其中，db文件夹为自带字典文件夹；reports为扫描日志文件夹；dirsearch.py为主程序文件 </p>
+<p>使用Git安装</p>
+<p><code>git clone https://github.com/maurosoria/dirsearch.git</code><br>        使用ZIP文件安装</p>
+<p><code>https://github.com/maurosoria/dirsearch/archive/master.zip</code><br>        使用Docker安装   </p>
+<p>详细信息：GitHub - maurosoria&#x2F;dirsearch: Web path scanner</p>
+<p><code>Docker build-t“dirsearch:v0.4.1</code><br> 使用Kali Linux安装       </p>
+<p><code>sudo apt-get Install dirsearch</code><br>使用PYPI安装</p>
+<p><code>PIP3 Install DirSearch</code><br>注意:*若要使用SOCKS代理功能，请安装带有<strong>Requirements.txt</strong>的包:</p>
+<p><code>pip3 install -r requirements.txt</code><br>一起安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/maurosoria/dirsearch.git</span><br><span class="line"><span class="built_in">cd</span> dirsearch</span><br><span class="line">pip3 install -r requirements.txt</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h4><p>演示视频：<a class="link"   target="_blank" rel="noopener" href="https://asciinema.org/a/380112.svg" >https://asciinema.org/a/380112.svg<i class="fas fa-external-link-alt"></i></a></p>
+<p>地址:<a class="link"   target="_blank" rel="noopener" href="https://asciinema.org/a/380112" >https://asciinema.org/a/380112<i class="fas fa-external-link-alt"></i></a></p>
+<p>简单用法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">python3 dirsearch.py -u https://target</span><br><span class="line"></span><br><span class="line">python3 dirsearch.py -e php,html,js -u https://target</span><br><span class="line"></span><br><span class="line">python3 dirsearch.py -e php,html,js -u https://target -w /path/to/wordlist</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="递归扫描"><a href="#递归扫描" class="headerlink" title="递归扫描"></a>递归扫描</h4><p>-通过使用**-r–recursive**参数，dirsearch将强制递归所有目录。</p>
+<p><code>python3 dirsearch.py -e php,html,js -u https://target -r</code><br>可以用**–recursion-depth<strong>设置最大递归深度，用</strong>–recursion-status**设置递归状态代码</p>
+<p><code>python3 dirsearch.py -e php,html,js -u https://target -r --recursion-depth 3 --recursion-status 200-399</code><br>还有2个选项:<strong>–force-recursive</strong>和**–deep-recursive**</p>
+<p><code>force-recursive</code>(强制递归):强力递归所有找到的路径，而不仅仅是以<code>/</code>结尾的路径<br>        <code>deep-recursive</code>(深度递归):递归强力路径的所有深度(<code>a/b/c</code>&#x3D;&gt;add<code>a/</code>,<code>a/b/</code>)</p>
+<h4 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h4><p>线程数(<strong>-t | –threads</strong>)反映了分离的强力进程的数量。因此，线程数越大，dirsearch运行得越快。默认情况下，线程数为30，但如果想加快进度，可以增加。</p>
+<p>尽管如此，速度仍然在很大程度上取决于服务器的响应时间。作为警告，建议保持线程数不要太大，因为这可能导致DOS。</p>
+<p>python3 dirsearch.py -e php,htm,js,bak,zip,tgz,txt -u <a class="link"   target="_blank" rel="noopener" href="https://target/" >https://target<i class="fas fa-external-link-alt"></i></a> -t 20</p>
+<h4 id="前缀-x2F-后缀"><a href="#前缀-x2F-后缀" class="headerlink" title="前缀&#x2F;后缀"></a>前缀&#x2F;后缀</h4><p>–prefixes:为所有条目添加自定义前缀</p>
+<p><code>python3 dirsearch.py -e php -u https://target --prefixes .,admin,_</code><br>基础路径：</p>
+<p> <code> tools</code></p>
+<p>加上前缀后：</p>
+<p><code>.tools</code></p>
+<p><code>admintools</code><br>        <code> _tools</code></p>
+<p>–suffixes:为所有条目添加自定义后缀</p>
+<p><code>python3 dirsearch.py -e php -u https://target --suffixes ~</code><br>基础路径：</p>
+<p><code>index.php</code><br>        <code>internal</code>	</p>
+<p>加上后缀后：</p>
+<p><code>index.php~         </code>internal~&#96;</p>
+<h4 id="黑名单"><a href="#黑名单" class="headerlink" title="黑名单"></a>黑名单</h4><p>在’db&#x2F;‘文件夹内，有几个“黑名单文件”。如果这些文件中的路径与文件名中提到的状态相同，则将从扫描结果中筛选这些文件中的路径。</p>
+<p>示例：如果将<code>admin.php</code>添加到<code>db/403_blacklist.txt</code>中，那么每当进行扫描时，<code>admin.php</code>返回403，就会从结果中筛选出来。</p>
+<h4 id="筛选器"><a href="#筛选器" class="headerlink" title="筛选器"></a>筛选器</h4><p>使用**-i-include-status<strong>和</strong>-x-exclude-status**选择允许和不允许响应状态代码</p>
+<p>更高级的过滤器:<strong>–exclude-sizes</strong>、**–exclude-texts<strong>、</strong>–exclude-regexps<strong>、</strong>–exclude-redirects<strong>和</strong>–exclude-content**</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">python3 dirsearch.py -e php,html,js -u https://target --exclude-sizes 1B,243KB</span><br><span class="line"></span><br><span class="line">python3 dirsearch.py -e php,html,js -u https://target --exclude-texts <span class="string">&quot;403 Forbidden&quot;</span></span><br><span class="line"></span><br><span class="line">python3 dirsearch.py -e php,html,js -u https://target --exclude-regexps <span class="string">&quot;^Error$&quot;</span></span><br><span class="line"></span><br><span class="line">python3 dirsearch.py -e php,html,js -u https://target --exclude-redirects <span class="string">&quot;https://(.*).okta.com/*&quot;</span></span><br><span class="line"></span><br><span class="line">python3 dirsearch.py -e php,html,js -u https://target --exclude-content /error.html</span><br></pre></td></tr></table></figure>
+
+<h4 id="原始请求"><a href="#原始请求" class="headerlink" title="原始请求"></a>原始请求</h4><p>dirsearch允许您从文件中导入原始请求。内容如下所示:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GET /admin HTTP/1.1</span><br><span class="line">Host: admin.example.com</span><br><span class="line">Cache-Control: max-age=0</span><br><span class="line">Accept: */*</span><br></pre></td></tr></table></figure>
+
+<p>因为dirsearch无法知道URI方案是什么，所以需要使用’–scheme’标志来设置它。默认情况下，该方案是’HTTP’，这会导致大量的假阴性。</p>
+<p>Wordlist格式<br>支持的wordlist格式：uppercase, lowercase, capitalization</p>
+<p>Lowercase：（小写）</p>
+<p><code>admin</code><br>        <code>index.html</code></p>
+<p>Uppercase:（大写）</p>
+<p> <code>ADMIN</code><br>        <code>INDEX.HTML</code></p>
+<p>Capital：（首字母大写）</p>
+<p> <code>Admin</code><br>      <code> Index.html</code></p>
+<h4 id="排除扩展"><a href="#排除扩展" class="headerlink" title="排除扩展"></a>排除扩展</h4><p>使用**-x–exclude-extensions**扩展列表将删除wordlist中包含给定扩展的所有路径</p>
+<p><code>python3 dirsearch.py -u https://target -X jsp</code><br>基础路径：</p>
+<p><code>admin.php        </code></p>
+<p>test.jsp&#96;</p>
+<p>排除扩展后：</p>
+<p><code>admin.php</code></p>
+<p>-如果要排除所有扩展名，除了在’-e’标志中选择的扩展名之外，请使用**–only-selected**</p>
+<p><code>python3 dirsearch.py -e html -u https://target --only-selected</code><br>基础路径：</p>
+<p><code>index.html</code><br>         <code>admin.php</code>	</p>
+<p>排除扩展后：</p>
+<p><code>index.html</code>    </p>
+<h4 id="扫描子目录"><a href="#扫描子目录" class="headerlink" title="扫描子目录"></a>扫描子目录</h4><p>-从URL中，你可以用**–subdirs**扫描子目录列表。</p>
+<p><code>python3 dirsearch.py -e php,html,js -u https://target --subdirs admin/,folder/,/</code><br>-反向版本是**–exclude-subdirs**，它阻止dirsearch递归扫描给定的子目录。</p>
+<p><code>python3 dirsearch.py -e php,html,js -u https://target --recursive --exclude-subdirs image/,css/</code></p>
+<h4 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h4><p>dirsearch支持SOCKS和HTTP代理，有两个选项：代理服务器或代理服务器列表。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">python3 dirsearch.py -e php,html,js -u https://target --proxy 127.0.0.1:8080</span><br><span class="line"></span><br><span class="line">python3 dirsearch.py -e php,html,js -u https://target --proxy socks5://10.10.0.1:8080</span><br><span class="line"></span><br><span class="line">python3 dirsearch.py -e php,html,js -u https://target --proxylist proxyservers.txt</span><br></pre></td></tr></table></figure>
+
+<h4 id="报告"><a href="#报告" class="headerlink" title="报告"></a>报告</h4><p>支持的报表格式:<strong>Simple</strong>、<strong>Plain</strong>、<strong>JSON</strong>、<strong>XML</strong>、<strong>MD</strong>、<strong>CSV</strong>、<strong>HTML</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python3 dirsearch.py -e php -l URLs.txt --format plain -o report.txt</span><br><span class="line"></span><br><span class="line">python3 dirsearch.py -e php -u https://target --format html -o target.json</span><br></pre></td></tr></table></figure>
+
+<h4 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h4><p>​        有更多的功能，你需要自己去发现</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">python3 dirsearch.py -u https://target -t 100 -m POST --data <span class="string">&quot;username=admin&quot;</span></span><br><span class="line"></span><br><span class="line">python3 dirsearch.py -u https://target --random-agent --cookie <span class="string">&quot;isAdmin=1&quot;</span> -F</span><br><span class="line"></span><br><span class="line">python3 dirsearch.py -u https://target --format json -o target.json</span><br><span class="line"></span><br><span class="line">python3 dirsearch.py -u https://target --auth admin:pass --auth-type basic</span><br><span class="line"></span><br><span class="line">python3 dirsearch.py -u https://target --header-list rate-limit-bypasses.txt</span><br><span class="line"></span><br><span class="line">python3 dirsearch.py -u https://target -q --stop-on-error --max-time 360</span><br><span class="line"></span><br><span class="line">python3 dirsearch.py -u https://target --full-url --max-rate 100</span><br><span class="line"></span><br><span class="line">python3 dirsearch.py -u https://target --remove-extensions</span><br></pre></td></tr></table></figure>
+
+<h6 id="小贴士"><a href="#小贴士" class="headerlink" title="小贴士"></a><em>小贴士</em></h6><h6 id="服务器有请求限制？这很糟糕，但是可以通过使用’–proxy-list’随机化proxy来绕过它"><a href="#服务器有请求限制？这很糟糕，但是可以通过使用’–proxy-list’随机化proxy来绕过它" class="headerlink" title="-服务器有请求限制？这很糟糕，但是可以通过使用’–proxy-list’随机化proxy来绕过它"></a>-服务器有请求限制？这很糟糕，但是可以通过使用’–proxy-list’随机化proxy来绕过它</h6><p>-想找出配置文件或备份吗？尝试<code>--suffixes ~</code>和<code>--prefixes .</code><br>-只想查找文件夹&#x2F;目录？为什么不结合’–remove-extensions’和’–suffixes&#x2F;<code>！</code> ######</p>
+<h6 id="The-mix-of-–cidr-F-q-and-will-reduce-most-of-noises-false-negatives-when-brute-forcing-with-a-CIDR"><a href="#The-mix-of-–cidr-F-q-and-will-reduce-most-of-noises-false-negatives-when-brute-forcing-with-a-CIDR" class="headerlink" title="The mix of –cidr, -F, -q and will reduce most of noises + false negatives when brute-forcing with a CIDR"></a><code>The mix of </code>–cidr<code>, </code>-F<code>, </code>-q<code> and will reduce most of noises + false negatives when brute-forcing with a CIDR</code></h6><h6 id="扫描一个网址列表，但不想看到一个429-flood？–Skip-on-Status-429-96-将帮助您在返回429时跳过目标"><a href="#扫描一个网址列表，但不想看到一个429-flood？–Skip-on-Status-429-96-将帮助您在返回429时跳过目标" class="headerlink" title="扫描一个网址列表，但不想看到一个429 flood？–Skip-on-Status 429&#96;将帮助您在返回429时跳过目标"></a><code>扫描一个网址列表，但不想看到一个429 flood？</code>–Skip-on-Status 429&#96;将帮助您在返回429时跳过目标</h6><p>-服务器包含会减慢扫描速度的大文件？您可能希望使用<code>head</code>HTTP方法而不是<code>get</code><br>-Brute-forcing CIDR慢？可能您忘了减少请求超时和请求重试。建议:&#96;–timeout 3 –retries 1 ######</p>
+<h4 id="强制性"><a href="#强制性" class="headerlink" title="强制性"></a>强制性</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">-u URL, --url=URL   目标URL</span><br><span class="line">   -l FILE, --url-list=FILE</span><br><span class="line">                       目标URL列表文件</span><br><span class="line">   --stdin             来自STDIN的目标URL列表</span><br><span class="line">   --cidr=CIDR         CIDR目标</span><br><span class="line">   --raw=FILE          文件从文件加载原始HTTP请求（使用`--Scheme`标志设置方案）</span><br><span class="line">   -e EXTENSIONS, --extensions=EXTENSIONS</span><br><span class="line">                       用逗号分隔的扩展列表（例如:php、asp)</span><br><span class="line">   -X EXTENSIONS, --exclude-extensions=EXTENSIONS</span><br><span class="line">                       排除用逗号分隔的扩展名列表（例如：asp、jsp）</span><br><span class="line">   -f, --force-extensions</span><br><span class="line">                       为每个wordlist条目添加扩展名。默认情况下dirsearch仅将%ext%关键字替换为扩展</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="字典设置"><a href="#字典设置" class="headerlink" title="字典设置"></a>字典设置</h4>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">-w WORDLIST, --wordlists=WORDLIST</span><br><span class="line">                       自定义Wordlist（用逗号分隔）</span><br><span class="line">   --prefixes=PREFIXES</span><br><span class="line">                       为所有wordlist条目添加自定义前缀（分开按逗号）</span><br><span class="line">   --suffixes=SUFFIXES</span><br><span class="line">                       将自定义后缀添加到所有wordlist条目，忽略目录（用逗号分隔）</span><br><span class="line">   --only-selected     移除路径的扩展名与选定的不同通过`-e`的（保留条目没有扩展名）</span><br><span class="line">   --remove-extensions</span><br><span class="line">                       删除所有路径中的扩展（例如： admin.php -&gt; admin)</span><br><span class="line">   -U, --uppercase     Uppercase wordlist</span><br><span class="line">   -L, --lowercase     Lowercase wordlist</span><br><span class="line">   -C, --capital       Capital wordlist</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="一般设置"><a href="#一般设置" class="headerlink" title="一般设置"></a>一般设置</h4><pre><code><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">-t THREADS, --threads=THREADS</span><br><span class="line">                       线程数</span><br><span class="line">   -r, --recursive     蛮力递归</span><br><span class="line">   --deep-recursive    对每个目录深度执行递归扫描（例如： api/users -&gt; api/)</span><br><span class="line">   --force-recursive   每个找到的路径做递归蛮力，而不是只有路径以斜杠结尾</span><br><span class="line">   --recursion-depth=DEPTH</span><br><span class="line">                       最大递归深度</span><br><span class="line">   --recursion-status=CODES</span><br><span class="line">                       执行递归扫描的有效状态代码，支持范围（用逗号分隔）</span><br><span class="line">   --subdirs=SUBDIRS   扫描给定URL[s]的子目录（由逗号）</span><br><span class="line">   --exclude-subdirs=SUBDIRS</span><br><span class="line">                       在递归过程中排除以下子目录扫描（用逗号分隔）</span><br><span class="line">   -i CODES, --include-status=CODES</span><br><span class="line">                       包括状态代码，以逗号分隔，支持范围（例如：200,300-399）</span><br><span class="line">   -x CODES, --exclude-status=CODES</span><br><span class="line">                       排除状态代码，用逗号分隔，支持范围（例如：301,500-599）</span><br><span class="line">   --exclude-sizes=SIZES</span><br><span class="line">                      按大小排除响应，用逗号分隔（例如:123B,4KB)</span><br><span class="line">   --exclude-texts=TEXTS</span><br><span class="line">                      按文本排除答复，用逗号分隔（例如:&#x27;not found&#x27;、&#x27;error&#x27;)</span><br><span class="line">   --exclude-regexps=REGEXPS</span><br><span class="line">                       用逗号分隔的正则表达式排除响应（例如：“not foun[a-z]&#123;1&#125;”,“^error$”）</span><br><span class="line">   --exclude-redirects=REGEXPS</span><br><span class="line">                       通过重定向正则表达式或文本排除响应，用逗号分隔（例如:&#x27;https://okta.com/*&#x27;)</span><br><span class="line">   --exclude-content=PATH</span><br><span class="line">                       按此路径的响应内容排除响应</span><br><span class="line">   --skip-on-status=CODES</span><br><span class="line">                       只要击中其中一个状态代码，就跳过目标，用逗号分隔，支持ranges</span><br><span class="line">   --minimal=LENGTH    最小响应长度</span><br><span class="line">   --maximal=LENGTH    最大响应长度</span><br><span class="line">   --max-time=SECONDS  扫描的最大运行时间</span><br><span class="line">   -q, --quiet-mode    安静模式</span><br><span class="line">   --full-url          输出中的完整URL（在安静模式）</span><br><span class="line">   --no-color          无彩色无彩色输出</span><br></pre></td></tr></table></figure>
+</code></pre>
+<h4 id="请求设置"><a href="#请求设置" class="headerlink" title="请求设置"></a>请求设置</h4>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">	-m METHOD, --http-method=METHOD</span><br><span class="line">                        HTTP方法（默认值：GET）</span><br><span class="line">    -d DATA, --data=DATA</span><br><span class="line">                        HTTP请求数据</span><br><span class="line">    -H HEADERS, --header=HEADERS</span><br><span class="line">                        HTTP请求头，支持多个标志（例如：-H &#x27;Referer: example.com&#x27;）</span><br><span class="line">    --header-list=FILE  文件包含HTTP请求头</span><br><span class="line">    -F, --follow-redirects</span><br><span class="line">                        遵循HTTP重定向</span><br><span class="line">    --random-agent      为每个请求选择一个随机用户代理</span><br><span class="line">    --auth-type=TYPE    身份验证类型 (basic, digest, bearer, ntlm)</span><br><span class="line">    --auth=CREDENTIAL   身份验证凭证 (user:password or bearer token)</span><br><span class="line">    --user-agent=USERAGENT</span><br><span class="line">    --cookie=COOKIE</span><br><span class="line">连接设置</span><br><span class="line">    --timeout=TIMEOUT   超时连接超时</span><br><span class="line">    -s DELAY, --delay=DELAY</span><br><span class="line">                        请求之间的延迟</span><br><span class="line">    --proxy=PROXY       代理URL，支持HTTP和SOCKS代理（例如：localhost:8080，socks5://localhost:8088)</span><br><span class="line">    --proxy-list=FILE   文件包含代理服务器</span><br><span class="line">    --replay-proxy=PROXY</span><br><span class="line">                        使用找到的路径重播的代理</span><br><span class="line">    --scheme=SCHEME     默认方案（对于原始请求或如果没有URL中的方案）</span><br><span class="line">    --max-rate=RATE     每秒最大请求数</span><br><span class="line">    --retries=RETRIES   重试失败请求的重试次数</span><br><span class="line">    -b, --request-by-hostname</span><br><span class="line">                        默认情况下，dirsearch按IP请求速度。这个将强制dirsearch按主机名请求</span><br><span class="line">    --ip=IP             每当发生错误就退出</span><br><span class="line"></span><br><span class="line">  报告：</span><br><span class="line">    -o FILE, --output=FILE</span><br><span class="line">                        输出文件</span><br><span class="line">    --format=FORMAT     format报表格式（可用:simple、plain、json、xml，md,csv,html）</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>可以在配置文件中编辑dirsearch标志的默认值:<code>Default.conf</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">如果要编辑dirsearch默认配置，可以编辑此文件中的值。<span class="string">&#x27;#&#x27;</span>后面的一切都是注释并且不会被应用</span></span><br><span class="line"></span><br><span class="line">[mandatory]</span><br><span class="line">default-extensions = php,aspx,jsp,html,js</span><br><span class="line">force-extensions = False</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">exclude-extensions = old,<span class="built_in">log</span></span></span><br><span class="line"></span><br><span class="line">[general]</span><br><span class="line">threads = 30</span><br><span class="line">recursive = False</span><br><span class="line">deep-recursive = False</span><br><span class="line">force-recursive = False</span><br><span class="line">recursion-depth = 0</span><br><span class="line">exclude-subdirs = %%ff/</span><br><span class="line">random-user-agents = False</span><br><span class="line">max-time = 0</span><br><span class="line">full-url = False</span><br><span class="line">quiet-mode = False</span><br><span class="line">color = True</span><br><span class="line">recursion-status = 200-399,401,403</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">include-status = 200-299,401</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">exclude-status = 400,500-999</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">exclude-sizes = 0b,123gb</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">exclude-texts = <span class="string">&quot;Not found&quot;</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">exclude-regexps = <span class="string">&quot;403 [a-z]&#123;1,25&#125;&quot;</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">exclude-content = 404.html</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">skip-on-status = 429,999</span></span><br><span class="line"></span><br><span class="line">[reports]</span><br><span class="line">report-format = plain</span><br><span class="line">autosave-report = True</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">report-output-folder = /home/user</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">logs-location = /tmp</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># Supported: plain, simple, json, xml, md, csv, html</span></span></span><br><span class="line"></span><br><span class="line">[dictionary]</span><br><span class="line">lowercase = False</span><br><span class="line">uppercase = False</span><br><span class="line">capitalization = False</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">prefixes = .,admin</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">suffixes = ~,.bak</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">wordlist = db/dicc.txt</span></span><br><span class="line"></span><br><span class="line">[request]</span><br><span class="line">httpmethod = get</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># Lowercase only</span></span></span><br><span class="line"></span><br><span class="line">follow-redirects = False</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">headers-file = headers.txt</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">user-agent = MyUserAgent</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">cookie = SESSIONID=123</span></span><br><span class="line"></span><br><span class="line">[connection]</span><br><span class="line">timeout = 5</span><br><span class="line">delay = 0</span><br><span class="line">scheme = http</span><br><span class="line">maxrate = 0</span><br><span class="line">retries = 2</span><br><span class="line">request-by-hostname = False</span><br><span class="line">exit-on-error = False</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">proxy = localhost:8080</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">proxy-list = proxies.txt</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">replay-proxy = localhost:8000</span></span><br></pre></td></tr></table></figure>
+
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    <div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li>
+            <span class="type">本文标题</span>：<span class="content">dirsearch工具使用</span>
+        </li>
+        <li>
+            <span class="type">本文作者</span>：<span class="content">靳言</span>
+        </li>
+        <li>
+            <span class="type">创建时间</span>：<span class="content">2022-11-22 19:09:00</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">2022/11/22/dirsearch工具使用/</span>
+        </li>
+        <li>
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/search/">#search</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/Web%E5%B7%A5%E5%85%B7/">#Web工具</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/">#信息收集</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/2022/11/23/XML%E5%8F%8A%E5%85%B6%E6%BC%8F%E6%B4%9E/"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item">XML及其漏洞</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/2022/11/22/%E6%BC%8F%E6%B4%9E%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">漏洞知识记录</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+                <div class="comment-container">
+                    
+<div class="comments-container">
+    <div id="comments-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments"></i>&nbsp;评论
+    </div>
+    
+        
+            
+
+    <div class="gitalk-comment-container">
+        <div id="gitalk-container"></div>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+        <script data-pjax src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+        <script data-pjax>
+          function loadGitalk() {
+            let __gitalk__pathname = decodeURI(location.pathname);
+            const __gitalk__pathnameLength = __gitalk__pathname.length;
+            const __gitalk__pathnameMaxLength = 50;
+            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
+              __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
+            }
+
+            try {
+              Gitalk && new Gitalk({
+                clientID: 'b0d265b65e10dfe0b28a',
+                clientSecret: '601093bea47cf989b9426df6fb006286a8075bcc',
+                repo: 'blogComment',
+                owner: 'skyblue955',
+                admin: 'skyblue955',
+                id: __gitalk__pathname,
+                language: 'zh-CN'
+              }).render('gitalk-container');
+            } catch (e) {
+              window.Gitalk = null;
+            }
+          }
+
+          if ('true' === 'true') {
+            const loadGitalkTimeout = setTimeout(() => {
+              loadGitalk();
+              clearTimeout(loadGitalkTimeout);
+            }, 1000);
+          } else {
+            window.addEventListener('DOMContentLoaded', loadGitalk);
+          }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+                </div>
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#dirsearch%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">dirsearch介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%8F%8A%E5%AE%89%E8%A3%85"><span class="nav-number">2.</span> <span class="nav-text">下载及安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">如何使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%92%E5%BD%92%E6%89%AB%E6%8F%8F"><span class="nav-number">4.</span> <span class="nav-text">递归扫描</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B"><span class="nav-number">5.</span> <span class="nav-text">线程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%89%8D%E7%BC%80-x2F-%E5%90%8E%E7%BC%80"><span class="nav-number">6.</span> <span class="nav-text">前缀&#x2F;后缀</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%BB%91%E5%90%8D%E5%8D%95"><span class="nav-number">7.</span> <span class="nav-text">黑名单</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AD%9B%E9%80%89%E5%99%A8"><span class="nav-number">8.</span> <span class="nav-text">筛选器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%9F%E5%A7%8B%E8%AF%B7%E6%B1%82"><span class="nav-number">9.</span> <span class="nav-text">原始请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%92%E9%99%A4%E6%89%A9%E5%B1%95"><span class="nav-number">10.</span> <span class="nav-text">排除扩展</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%AB%E6%8F%8F%E5%AD%90%E7%9B%AE%E5%BD%95"><span class="nav-number">11.</span> <span class="nav-text">扫描子目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%90%86"><span class="nav-number">12.</span> <span class="nav-text">代理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%A5%E5%91%8A"><span class="nav-number">13.</span> <span class="nav-text">报告</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%91%BD%E4%BB%A4"><span class="nav-number">14.</span> <span class="nav-text">其他命令</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%B0%8F%E8%B4%B4%E5%A3%AB"><span class="nav-number">14.0.1.</span> <span class="nav-text">小贴士</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9C%89%E8%AF%B7%E6%B1%82%E9%99%90%E5%88%B6%EF%BC%9F%E8%BF%99%E5%BE%88%E7%B3%9F%E7%B3%95%EF%BC%8C%E4%BD%86%E6%98%AF%E5%8F%AF%E4%BB%A5%E9%80%9A%E8%BF%87%E4%BD%BF%E7%94%A8%E2%80%99%E2%80%93proxy-list%E2%80%99%E9%9A%8F%E6%9C%BA%E5%8C%96proxy%E6%9D%A5%E7%BB%95%E8%BF%87%E5%AE%83"><span class="nav-number">14.0.2.</span> <span class="nav-text">-服务器有请求限制？这很糟糕，但是可以通过使用’–proxy-list’随机化proxy来绕过它</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#The-mix-of-%E2%80%93cidr-F-q-and-will-reduce-most-of-noises-false-negatives-when-brute-forcing-with-a-CIDR"><span class="nav-number">14.0.3.</span> <span class="nav-text">The mix of –cidr, -F, -q and will reduce most of noises + false negatives when brute-forcing with a CIDR</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%89%AB%E6%8F%8F%E4%B8%80%E4%B8%AA%E7%BD%91%E5%9D%80%E5%88%97%E8%A1%A8%EF%BC%8C%E4%BD%86%E4%B8%8D%E6%83%B3%E7%9C%8B%E5%88%B0%E4%B8%80%E4%B8%AA429-flood%EF%BC%9F%E2%80%93Skip-on-Status-429-96-%E5%B0%86%E5%B8%AE%E5%8A%A9%E6%82%A8%E5%9C%A8%E8%BF%94%E5%9B%9E429%E6%97%B6%E8%B7%B3%E8%BF%87%E7%9B%AE%E6%A0%87"><span class="nav-number">14.0.4.</span> <span class="nav-text">扫描一个网址列表，但不想看到一个429 flood？–Skip-on-Status 429&#96;将帮助您在返回429时跳过目标</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%BA%E5%88%B6%E6%80%A7"><span class="nav-number">15.</span> <span class="nav-text">强制性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E5%85%B8%E8%AE%BE%E7%BD%AE"><span class="nav-number">16.</span> <span class="nav-text">字典设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E8%88%AC%E8%AE%BE%E7%BD%AE"><span class="nav-number">17.</span> <span class="nav-text">一般设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E8%AE%BE%E7%BD%AE"><span class="nav-number">18.</span> <span class="nav-text">请求设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">19.</span> <span class="nav-text">配置</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2020</span> -
+            
+            2022
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">靳言</a>
+            
+        </div>
+        
+            <script async data-pjax
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                
+                
+                    总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.5.2</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.2/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.2/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.2/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.2/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.2/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.2/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.2/source/js/code-block.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.2/source/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.2/source/js/post-helper.js"></script>
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.2/source/js/libs/anime.min.js"></script>
+        
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.2/source/js/toc.js"></script>
+        
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.2/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
